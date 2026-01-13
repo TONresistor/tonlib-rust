@@ -1,12 +1,16 @@
-# tonnet-rust
+<div align="center">
 
-[![CI](https://github.com/TONresistor/tonnet-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/TONresistor/tonnet-rs/actions/workflows/ci.yml)
+# tonlib-rust
+
+[![CI](https://github.com/TONresistor/tonlib-rust/actions/workflows/ci.yml/badge.svg)](https://github.com/TONresistor/tonlib-rust/actions/workflows/ci.yml)
 [![Rust](https://img.shields.io/badge/rust-1.85%2B-orange?logo=rust)](https://www.rust-lang.org/)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-**Native Rust SDK for TON Blockchain.** Full protocol stack implementation with 100% conformance to [ton-blockchain/ton](https://github.com/ton-blockchain/ton).
+**Native Rust SDK for TON Blockchain**
 
-Build wallets, dApps, payment channels, and decentralized services on The Open Network with type-safe, async-first Rust. Supports ADNL, DHT, RLDP, TON Storage, TON Sites, Jettons (TEP-74), NFTs (TEP-62), and off-chain payments.
+</div>
+
+Full protocol stack implementation with 100% conformance to [ton-blockchain/ton](https://github.com/ton-blockchain/ton). Build wallets, dApps, payment channels, and decentralized services on The Open Network.
 
 ## Crates
 
