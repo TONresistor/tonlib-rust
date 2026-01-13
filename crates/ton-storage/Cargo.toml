@@ -1,0 +1,30 @@
+[package]
+name = "ton-storage"
+description = "TON Storage: Decentralized file storage with Merkle proofs"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+ton-crypto = { workspace = true }
+ton-cell = { workspace = true }
+ton-dht = { path = "../ton-dht" }
+ton-overlay = { path = "../ton-overlay" }
+ton-rldp = { path = "../ton-rldp" }
+ton-adnl = { path = "../ton-adnl" }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["rt", "sync", "time", "fs"] }
+tokio-util = "0.7"
+tracing = { workspace = true }
+rand = { workspace = true }
+async-trait = "0.1"
+hex = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+sha2 = { workspace = true }
+crc32fast = "1.3"
+
+[dev-dependencies]
+hex = "0.4"
+tokio = { workspace = true, features = ["rt-multi-thread", "macros"] }
+tempfile = "3.8"

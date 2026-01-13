@@ -1,0 +1,22 @@
+[package]
+name = "ton-wallet"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "TON Wallet implementations (V3R2, V4R2, V5R1, Highload)"
+
+[dependencies]
+ton-crypto = { path = "../ton-crypto" }
+ton-cell = { path = "../ton-cell" }
+ton-adnl = { path = "../ton-adnl" }
+thiserror = { workspace = true }
+rand = { workspace = true }
+sha2 = { workspace = true }
+hmac = "0.12"
+pbkdf2 = "0.12"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+hex = "0.4"

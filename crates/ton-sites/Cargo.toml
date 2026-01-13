@@ -1,0 +1,29 @@
+[package]
+name = "ton-sites"
+description = "TON Sites: HTTP over RLDP for decentralized web hosting on TON network"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[features]
+default = []
+# Enable real RLDP transport with lite-client DNS backend
+lite-client = ["ton-dns/lite-client", "ton-adnl"]
+# Enable UDP ADNL transport for real network connections
+udp-transport = ["ton-adnl"]
+
+[dependencies]
+ton-crypto = { workspace = true }
+ton-dns = { workspace = true }
+ton-rldp = { workspace = true }
+ton-tl = { workspace = true }
+ton-adnl = { workspace = true, optional = true }
+tracing = { workspace = true }
+thiserror = { workspace = true }
+rand = { workspace = true }
+hex = "0.4"
+tokio = { version = "1", features = ["rt", "sync", "time"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }

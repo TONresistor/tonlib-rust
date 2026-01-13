@@ -1,0 +1,25 @@
+[package]
+name = "ton-dns"
+description = "TON DNS resolution: human-readable .ton domain to address translation"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[features]
+default = []
+lite-client = ["ton-adnl", "tokio", "num-bigint"]
+
+[dependencies]
+ton-crypto = { workspace = true }
+ton-cell = { workspace = true }
+thiserror = { workspace = true }
+hex = "0.4"
+
+# Optional dependencies for lite client backend
+ton-adnl = { workspace = true, optional = true }
+tokio = { version = "1", features = ["sync", "rt"], optional = true }
+num-bigint = { version = "0.4", optional = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }

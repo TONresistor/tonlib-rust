@@ -1,0 +1,13 @@
+[package]
+name = "ton-tl"
+description = "TL (Type Language) serialization for TON network protocols"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+thiserror = { workspace = true }
+
+[dev-dependencies]
+hex = "0.4"

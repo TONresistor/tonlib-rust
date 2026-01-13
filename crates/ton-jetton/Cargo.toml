@@ -1,0 +1,16 @@
+[package]
+name = "ton-jetton"
+description = "TEP-74 Jetton (fungible token) standard implementation for TON"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+ton-cell = { path = "../ton-cell" }
+ton-adnl = { path = "../ton-adnl" }
+thiserror = { workspace = true }
+rand = { workspace = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }

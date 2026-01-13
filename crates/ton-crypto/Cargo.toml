@@ -1,0 +1,23 @@
+[package]
+name = "ton-crypto"
+description = "Cryptographic primitives for TON network: Ed25519, X25519, AES-CTR, SHA256"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+ed25519-dalek = { workspace = true }
+x25519-dalek = { workspace = true }
+curve25519-dalek = { workspace = true }
+aes = { workspace = true }
+ctr = { workspace = true }
+sha2 = { workspace = true }
+hmac = { workspace = true }
+pbkdf2 = { workspace = true }
+rand = { workspace = true }
+thiserror = { workspace = true }
+zeroize = { workspace = true }
+
+[dev-dependencies]
+hex = "0.4"

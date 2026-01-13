@@ -1,0 +1,16 @@
+[package]
+name = "ton-cell"
+description = "TON Cell and Bag of Cells (BoC) implementation"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+sha2 = { workspace = true }
+thiserror = { workspace = true }
+base64 = "0.21"
+crc = "3.0"
+
+[dev-dependencies]
+hex = "0.4"

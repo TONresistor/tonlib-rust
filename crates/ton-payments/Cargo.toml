@@ -1,0 +1,25 @@
+[package]
+name = "ton-payments"
+description = "TON Payment Channels - instant, fee-free off-chain payments"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[features]
+default = []
+# Enable on-chain integration with lite client support
+onchain = ["ton-adnl"]
+
+[dependencies]
+ton-crypto = { path = "../ton-crypto" }
+ton-cell = { path = "../ton-cell" }
+thiserror = { workspace = true }
+rand = { workspace = true }
+
+# Optional dependency for on-chain operations
+ton-adnl = { path = "../ton-adnl", optional = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+hex = "0.4"

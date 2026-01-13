@@ -1,0 +1,63 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/ton-crypto",
+    "crates/ton-tl",
+    "crates/ton-cell",
+    "crates/ton-adnl",
+    "crates/ton-dht",
+    "crates/ton-rldp",
+    "crates/ton-overlay",
+    "crates/ton-dns",
+    "crates/ton-storage",
+    "crates/ton-sites",
+    "crates/ton-payments",
+    "crates/ton-jetton",
+    "crates/ton-nft",
+    "crates/ton-wallet",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["t.me/zkproof"]
+license = "MIT"
+repository = "https://github.com/TONresistor/tonlib-rust"
+
+[workspace.dependencies]
+# Cryptography
+ed25519-dalek = { version = "2.1", features = ["rand_core"] }
+x25519-dalek = { version = "2.0", features = ["static_secrets"] }
+curve25519-dalek = { version = "4.1", features = ["digest"] }
+aes = "0.8"
+ctr = "0.9"
+sha2 = "0.10"
+hmac = "0.12"
+pbkdf2 = "0.12"
+rand = "0.8"
+
+# Security
+zeroize = { version = "1.7", features = ["derive"] }
+
+# Utilities
+thiserror = "1.0"
+tokio = "1"
+tracing = "0.1"
+governor = "0.6"
+
+# Internal crates
+ton-crypto = { path = "crates/ton-crypto" }
+ton-tl = { path = "crates/ton-tl" }
+ton-cell = { path = "crates/ton-cell" }
+ton-adnl = { path = "crates/ton-adnl" }
+ton-dht = { path = "crates/ton-dht" }
+ton-rldp = { path = "crates/ton-rldp" }
+ton-overlay = { path = "crates/ton-overlay" }
+ton-dns = { path = "crates/ton-dns" }
+ton-storage = { path = "crates/ton-storage" }
+ton-sites = { path = "crates/ton-sites" }
+ton-payments = { path = "crates/ton-payments" }
+ton-jetton = { path = "crates/ton-jetton" }
+ton-nft = { path = "crates/ton-nft" }
+ton-wallet = { path = "crates/ton-wallet" }
+

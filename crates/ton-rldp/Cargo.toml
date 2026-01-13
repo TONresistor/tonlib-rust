@@ -1,0 +1,21 @@
+[package]
+name = "ton-rldp"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "RLDP (Reliable Large Datagram Protocol) implementation for TON network"
+
+[dependencies]
+ton-adnl = { path = "../ton-adnl" }
+ton-crypto = { path = "../ton-crypto" }
+raptorq = "2.0"
+tokio = { version = "1", features = ["rt", "time", "sync"] }
+rand.workspace = true
+thiserror.workspace = true
+tracing = "0.1"
+lru = "0.13"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }

@@ -1,0 +1,26 @@
+[package]
+name = "ton-overlay"
+description = "TON Overlay Network implementation for shardchain communication"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+# Internal crates
+ton-crypto = { path = "../ton-crypto" }
+ton-adnl = { path = "../ton-adnl" }
+ton-dht = { path = "../ton-dht" }
+ton-rldp = { path = "../ton-rldp" }
+
+# Async runtime
+tokio = { version = "1", features = ["rt", "time", "sync"] }
+
+# Utilities
+rand = "0.8"
+thiserror = "1.0"
+tracing = "0.1"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }

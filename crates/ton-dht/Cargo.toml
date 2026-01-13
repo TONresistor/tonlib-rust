@@ -1,0 +1,17 @@
+[package]
+name = "ton-dht"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "TON DHT (Distributed Hash Table) Kademlia implementation"
+
+[dependencies]
+ton-crypto = { path = "../ton-crypto" }
+ton-adnl = { path = "../ton-adnl" }
+tokio = { version = "1", features = ["net", "time", "sync", "rt-multi-thread", "macros"] }
+futures = "0.3"
+thiserror.workspace = true
+rand.workspace = true
+tracing = "0.1"
