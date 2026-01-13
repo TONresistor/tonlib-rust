@@ -8,9 +8,9 @@
 
 **Native Rust SDK for TON Blockchain**
 
-</div>
-
 Full protocol stack implementation with 100% conformance to [ton-blockchain/ton](https://github.com/ton-blockchain/ton). Build wallets, dApps, payment channels, and decentralized services on The Open Network.
+
+</div>
 
 ## Crates
 
