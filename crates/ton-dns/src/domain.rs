@@ -1,7 +1,7 @@
 //! Domain parsing, validation, and internal representation conversion.
 //!
 //! TON DNS domains follow specific rules:
-//! - Must end with `.ton`
+//! - Must end with `.ton` or `.t.me` (Telegram usernames via Fragment)
 //! - UTF-8 encoded, max 126 bytes per component
 //! - Bytes 0-32 are prohibited (control characters)
 //! - Case-sensitive internally, but applications typically convert to lowercase
@@ -12,6 +12,7 @@
 //! - Components are reversed (e.g., "test.ton" -> "ton", "test")
 //! - Each component is followed by a null byte
 //! - Example: "test.ton" -> b"ton\0test\0"
+//! - Example: "user.t.me" -> b"me\0t\0user\0"
 
 use crate::error::{DnsError, DnsResult};
 
@@ -20,6 +21,9 @@ pub const MAX_COMPONENT_LENGTH: usize = 126;
 
 /// The required TLD for TON domains.
 pub const TON_TLD: &str = "ton";
+
+/// The TLD for Telegram usernames (via Fragment).
+pub const TME_TLD: &str = "t.me";
 
 /// A validated TON domain name.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -62,14 +66,19 @@ impl TonDomain {
         // Split into components
         let components: Vec<&str> = domain.split('.').collect();
 
-        // Must have at least 2 components (name.ton)
-        if components.len() < 2 {
+        // Check for valid TLD: .ton or .t.me
+        let is_ton_domain = components.last() == Some(&"ton");
+        let is_tme_domain = components.len() >= 3
+            && components[components.len() - 2] == "t"
+            && components[components.len() - 1] == "me";
+
+        if !is_ton_domain && !is_tme_domain {
             return Err(DnsError::InvalidTld(domain.to_string()));
         }
 
-        // Check TLD is "ton"
-        let tld = components.last().unwrap();
-        if *tld != TON_TLD {
+        // Must have at least one name component before TLD
+        let min_components = if is_tme_domain { 3 } else { 2 }; // "x.t.me" or "x.ton"
+        if components.len() < min_components {
             return Err(DnsError::InvalidTld(domain.to_string()));
         }
 

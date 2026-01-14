@@ -20,8 +20,8 @@ pub enum DnsError {
     #[error("Domain component contains invalid character: byte 0x{byte:02x}")]
     InvalidCharacter { byte: u8 },
 
-    /// Domain does not end with .ton.
-    #[error("Domain must end with .ton: {0}")]
+    /// Domain does not end with .ton or .t.me.
+    #[error("Domain must end with .ton or .t.me: {0}")]
     InvalidTld(String),
 
     /// Domain was not found.
