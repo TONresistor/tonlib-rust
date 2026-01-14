@@ -81,7 +81,7 @@ mod tests {
         );
 
         let err = DnsError::InvalidTld("example.com".to_string());
-        assert_eq!(err.to_string(), "Domain must end with .ton: example.com");
+        assert_eq!(err.to_string(), "Domain must end with .ton or .t.me: example.com");
 
         let err = DnsError::DomainNotFound("test.ton".to_string());
         assert_eq!(err.to_string(), "Domain not found: test.ton");
